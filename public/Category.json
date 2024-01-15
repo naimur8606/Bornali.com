@@ -1,0 +1,34 @@
+[
+    {
+        "categoryName": "Fish",
+        "categoryImage": "https://i.ibb.co/bsBnkds/fish-category.png"
+    },
+    {
+        "categoryName": "Snacks",
+        "categoryImage": "https://i.ibb.co/f15PBqq/snacks.png"
+    },
+    {
+        "categoryName": "Beef",
+        "categoryImage": "https://i.ibb.co/wKfyWKG/beef.png"
+    },
+    {
+        "categoryName": "Mutton",
+        "categoryImage": "https://i.ibb.co/8cnZRhM/mutton.png"
+    },
+    {
+        "categoryName": "Poultry",
+        "categoryImage": "https://i.ibb.co/CnmM2vq/poultry.png"
+    },
+    {
+        "categoryName": "Beef",
+        "categoryImage": "https://i.ibb.co/wKfyWKG/beef.png"
+    },
+    {
+        "categoryName": "Snacks",
+        "categoryImage": "https://i.ibb.co/f15PBqq/snacks.png"
+    },
+    {
+        "categoryName": "Mutton",
+        "categoryImage": "https://i.ibb.co/8cnZRhM/mutton.png"
+    }
+]
