@@ -10,9 +10,14 @@ const ShopByCategory = () => {
         link: "/categories"
     }
     return (
-        <div className="my-10">
+        <div className="my-10 px-5">
             <CommonTitle sectionProperties={sectionProperties}></CommonTitle>
-            <ShopByCategorySlider></ShopByCategorySlider>
+            <div className="hidden md:block">
+            <ShopByCategorySlider slideNumber={4}></ShopByCategorySlider>
+            </div>
+            <div className="md:hidden">
+            <ShopByCategorySlider slideNumber={2}></ShopByCategorySlider>
+            </div>
         </div>
     );
 };

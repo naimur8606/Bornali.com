@@ -21,8 +21,8 @@ const BestSellers = () => {
     }
 
     return (
-        <div className="bg-[#f4f6f9] py-8 px-3 lg:px-0">
-            <div className="bg-[#f4f6f9] pt-10 px-3 lg:px-0">
+        <div className="bg-[#f4f6f9] pt-8 px-3 lg:px-0">
+            <div className="bg-[#f4f6f9] md:pt-8 lg:pt-10 px-3 lg:px-0">
                 <CommonTitle sectionProperties={sectionProperties}></CommonTitle>
                 <div className="hidden lg:block">
                     <CommonSliderSection products={products} slideNumber={2}></CommonSliderSection>

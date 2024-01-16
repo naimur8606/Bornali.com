@@ -3,7 +3,7 @@ import { IoIosArrowDropleft, IoIosArrowDropright, IoIosStar } from "react-icons/
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
-const ShopByCategorySlider = () => {
+const ShopByCategorySlider = ({slideNumber}) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const sliderRef = useRef(null);
     const [categories, setCategories] = useState([]);
@@ -16,7 +16,7 @@ const ShopByCategorySlider = () => {
 
     const settings = {
         dots: true,
-        slidesToShow: 4,
+        slidesToShow: slideNumber,
         autoplay: true,
         arrows: false,
         afterChange: (index) => {
@@ -41,7 +41,7 @@ const ShopByCategorySlider = () => {
             <div className="slick-container w-full">
                 <Slider ref={sliderRef} {...settings}>
                     {categories?.map((category, idx) => (
-                        <div key={idx} className="md:p-3">
+                        <div key={idx} className="p-3">
                             <Link to={`/${category?.categoryName}`} className="rounded-lg shadow-lg">
                                 <div className="relative text-white category-slider hover:text-[#fecd28] overflow-visible">
                                     {/* Set overflow to visible to make sure the content is visible when it overflows */}
