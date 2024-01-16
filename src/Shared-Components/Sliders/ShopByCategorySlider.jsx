@@ -43,13 +43,14 @@ const ShopByCategorySlider = () => {
                     {categories?.map((category, idx) => (
                         <div key={idx} className="md:p-3">
                             <Link to={`/${category?.categoryName}`} className="rounded-lg shadow-lg">
-                                <div className="relative text-white hover:text-[#fecd28]">
-                                    <img className="rounded-md" src={category?.categoryImage} alt="" />
-                                    <div className="absolute bottom-0 pb-5 h-full w-full rounded-md flex justify-center items-end
-                                    " style={{ background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%)' }}>
-                                        <p className=" text-2xl font-bold">{category?.categoryName}</p>
+                                <div className="relative text-white category-slider hover:text-[#fecd28] overflow-visible">
+                                    {/* Set overflow to visible to make sure the content is visible when it overflows */}
+                                    <img className="rounded-md transition-transform duration-300 transform hover:scale-110" src={category?.categoryImage} alt="" />
+                                    <div className="absolute bottom-0 pb-5 h-full w-full rounded-md flex justify-center items-end" style={{ background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%)' }}>
+                                        <p className="text-2xl font-bold">{category?.categoryName}</p>
                                     </div>
                                 </div>
+
                             </Link>
                         </div>
                     ))}
