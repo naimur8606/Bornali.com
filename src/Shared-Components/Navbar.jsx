@@ -45,7 +45,7 @@ const Navbar = () => {
                 </div>
 
                 <ul className={`text-[#FECD28] flex items-center text-lg space-x-3`}>
-                    <li className='hidden'>
+                    <li className='md:hidden'>
                         <CiSearch className='text-[#fff] mr-1.5 font-extrabold'></CiSearch>
                     </li>
                     <li className='flex items-center md:border border-[#615f5f] py-1 pl-1 md:pr-3 rounded-md'>

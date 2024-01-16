@@ -6,6 +6,7 @@ import OfferBoard from "./OfferBoard";
 import BestSellers from "./BestSellers";
 import BestDeals from "./BestDeals";
 import PopularOffer from "./PopularItems";
+import ShopByCategory from "./ShopByCategory";
 
 const Home = () => {
   const [isButtonVisible, setIsButtonVisible] = useState(false);
@@ -38,6 +39,7 @@ const Home = () => {
       <BestSellers></BestSellers>
       <BestDeals></BestDeals>
       <PopularOffer></PopularOffer>
+      <ShopByCategory></ShopByCategory>
 
       <div className="relative">
         {isButtonVisible && (

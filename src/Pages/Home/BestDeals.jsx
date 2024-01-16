@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import CommonSliderSection from "../../Shared-Components/CommonSliderSection";
+import CommonSliderSection from "../../Shared-Components/Sliders/CommonSliderSection";
+import CommonTitle from "../../Shared-Components/CommonTitle";
 
 const BestDeals = () => {
     const [products, setProducts] = useState([]);
@@ -21,11 +22,14 @@ const BestDeals = () => {
     
     return (
         <div className="bg-[#f4f6f9] py-8 px-3 lg:px-0">
-            <div className="hidden lg:block">
-            <CommonSliderSection products={products} sectionProperties={sectionProperties} slideNumber={2}></CommonSliderSection>
-            </div>
-            <div className="lg:hidden">
-            <CommonSliderSection products={products} sectionProperties={sectionProperties} slideNumber={1}></CommonSliderSection>
+            <div className="bg-[#f4f6f9] pt-10 px-3 lg:px-0">
+                <CommonTitle sectionProperties={sectionProperties}></CommonTitle>
+                <div className="hidden lg:block">
+                    <CommonSliderSection products={products} slideNumber={2}></CommonSliderSection>
+                </div>
+                <div className="lg:hidden">
+                    <CommonSliderSection products={products} slideNumber={1}></CommonSliderSection>
+                </div>
             </div>
         </div>
     );

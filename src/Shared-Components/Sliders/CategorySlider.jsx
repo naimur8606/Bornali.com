@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
-import "./Shared-Components.css";
+import "../Shared-Components.css";
 import { Link } from "react-router-dom";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
@@ -48,7 +48,7 @@ const CategorySlider = ({slideNumber}) => {
               >
                 <img
                   className="h-14 md:h-24 w-10 md:w-20"
-                  src={category?.categoryImage}
+                  src={category?.categoryLogo}
                   alt=""
                 />
                 <h3 className="md:text-xl font-semibold">

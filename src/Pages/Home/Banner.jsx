@@ -1,7 +1,7 @@
 import './Home.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import CategorySlider from '../../Shared-Components/CategorySlider';
+import CategorySlider from '../../Shared-Components/Sliders/CategorySlider';
 import { Link } from 'react-router-dom';
 // import Responsive from '../../Shared-Components/MySlider';
 

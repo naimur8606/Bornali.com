@@ -1,34 +1,43 @@
 [
     {
         "categoryName": "Fish",
-        "categoryImage": "https://i.ibb.co/bsBnkds/fish-category.png"
+        "categoryLogo": "https://i.ibb.co/bsBnkds/fish-category.png",
+        "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
+
     },
     {
         "categoryName": "Snacks",
-        "categoryImage": "https://i.ibb.co/f15PBqq/snacks.png"
+        "categoryLogo": "https://i.ibb.co/f15PBqq/snacks.png",
+        "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
     },
     {
         "categoryName": "Beef",
-        "categoryImage": "https://i.ibb.co/wKfyWKG/beef.png"
+        "categoryLogo": "https://i.ibb.co/wKfyWKG/beef.png",
+        "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
     },
     {
         "categoryName": "Mutton",
-        "categoryImage": "https://i.ibb.co/8cnZRhM/mutton.png"
+        "categoryLogo": "https://i.ibb.co/8cnZRhM/mutton.png",
+        "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
     },
     {
         "categoryName": "Poultry",
-        "categoryImage": "https://i.ibb.co/CnmM2vq/poultry.png"
+        "categoryLogo": "https://i.ibb.co/CnmM2vq/poultry.png",
+        "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
     },
     {
         "categoryName": "Beef",
-        "categoryImage": "https://i.ibb.co/wKfyWKG/beef.png"
+        "categoryLogo": "https://i.ibb.co/wKfyWKG/beef.png",
+        "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
     },
     {
         "categoryName": "Snacks",
-        "categoryImage": "https://i.ibb.co/f15PBqq/snacks.png"
+        "categoryLogo": "https://i.ibb.co/f15PBqq/snacks.png",
+        "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
     },
     {
         "categoryName": "Mutton",
-        "categoryImage": "https://i.ibb.co/8cnZRhM/mutton.png"
+        "categoryLogo": "https://i.ibb.co/8cnZRhM/mutton.png",
+        "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
     }
 ]

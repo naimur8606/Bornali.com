@@ -1,6 +1,28 @@
 /* Shared-Components.css or your style file */
 .slick-container {
-    overflow: hidden;
-  }
-  
-  
+  overflow: hidden;
+}
+
+.pagination-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.pagination-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #b4b2b2;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+.pagination-dot.active {
+  background-color: #feac00;
+}
