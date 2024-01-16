@@ -3,10 +3,11 @@ import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 const Footer = () => {
     return (
         <footer>
-            <div className="footer gap-0 text-neutral-content">
-                <aside className="bg-[#1F2937] w-full p-10 flex justify-center md:justify-end md:pr-20 text-center">
+            <div className="bg-[#1F2937] text-white flex flex-col md:flex-row items-center p-10 space-y-5  md:space-y-0">
+                <aside className="w-full flex md:justify-end md:pr-20">
                     <div>
-                        <img className='h-24 mx-auto' src='https://i.ibb.co/mTfvdVR/Esrate-Echo-logo.png' alt="" />
+                        {/* add logo or anything */}
+                        <h2 className='text-4xl text-white font-bold'>Logo</h2>
                         <div>
                             <h5 className='text-2xl'>Contact Us</h5>
                             <p>Ibrahimpur, Dhaka-1216, Bangladesh</p>
@@ -15,8 +16,8 @@ const Footer = () => {
                         </div>
                     </div>
                 </aside>
-                <nav className="bg-[#111827] w-full p-10 h-full flex justify-center md:justify-start items-center md:pl-20">
-                    <div>
+                <nav className="w-full flex md:justify-start md:pr-20">
+                    <div className='space-y-2'>
                         <h5 className='text-2xl'>Follow Us</h5>
                         <p>Join us with social</p>
                         <div className='text-2xl flex space-x-4'>
@@ -26,11 +27,6 @@ const Footer = () => {
                         </div>
                     </div>
                 </nav>
-            </div>
-            <div className="footer footer-center p-4 bg-[#151515] text-slate-300 ">
-                <aside>
-                    <p>Copyright © 2023 - All right reserved by BOSS Restaurant</p>
-                </aside>
             </div>
         </footer>
     );
