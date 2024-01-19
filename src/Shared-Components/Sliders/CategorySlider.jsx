@@ -1,20 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Slider from "react-slick";
 import "../Shared-Components.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
+import useCategories from "../../Hooks/useCategories";
 
 const CategorySlider = ({slideNumber}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    fetch("./Category.json")
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
-  }, []);
-
+  const [categories] = useCategories();
+  const location = useLocation().pathname;
+console.log(location)
   const settings = {
     slidesToShow: slideNumber,
     autoplay: true,
@@ -43,12 +39,17 @@ const CategorySlider = ({slideNumber}) => {
           {categories?.map((category, idx) => (
             <div key={idx} className="">
               <Link
-                to={`/${category?.categoryName}`}
-                className="m-3 py-4 md:py-8 px-2 bg-slate-50 flex flex-col items-center shadow-md rounded-md"
+                to={`/categories/${category?.categoryName.toLowerCase()}`}
+                className={`m-3 py-4 md:py-8 px-2 bg-slate-50 ${
+                  location === `/categories/${category?.categoryName.toLowerCase()}` 
+                    ? 'bg-[#fecd28]' 
+                    : ''
+                } hover:bg-[#fecd28] flex flex-col items-center shadow-md rounded-md`}
+                
               >
                 <img
                   className="h-14 md:h-24 w-10 md:w-20"
-                  src={category?.categoryLogo}
+                  src={category?.logo}
                   alt=""
                 />
                 <h3 className="md:text-xl font-semibold">

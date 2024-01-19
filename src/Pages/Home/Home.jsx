@@ -3,58 +3,53 @@ import { Helmet } from "react-helmet-async";
 import Banner from "./Banner";
 import { IoMdArrowRoundUp } from "react-icons/io";
 import OfferBoard from "./OfferBoard";
-import BestSellers from "./BestSellers";
-import BestDeals from "./BestDeals";
-import PopularOffer from "./PopularItems";
 import ShopByCategory from "./ShopByCategory";
 import AppSection from "./AppSection";
 import Testimonials from "./Testimonials";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import HomeCommonSection from "./HomeCommonSection";
 
 const Home = () => {
-  const [isButtonVisible, setIsButtonVisible] = useState(false);
+  const axiosPublic = useAxiosPublic()
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollThreshold = 100;
-      const isPastThreshold = window.scrollY > scrollThreshold;
-      setIsButtonVisible(isPastThreshold);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const handleButtonClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+    axiosPublic.get('/products').then(data => setProducts(data?.data))
+  }, [axiosPublic])
+  const bestSellers = products?.filter(item => item?.offerType === "best-sellers")
+  const bestDeals = products?.filter(item => item?.offerType === "best-deals")
+  const popularItems = products?.filter(item => item?.offerType === "popular-items")
+  const sectionTitle = [
+    {
+      name: "Best Sellers",
+      logo: "https://i.ibb.co/DgfPmg5/best-token.png",
+      link: "best-sellers"
+    }, {
+      name: "Best Deals",
+      logo: "https://i.ibb.co/1z4zX06/best-Deals-icon.png",
+      link: "best-deals"
+    },
+    {
+      name: "Popular Items",
+      logo: "https://i.ibb.co/QXBwqC7/1657088.png",
+      link: "popular-items"
+    }
+  ]
+  console.log(products)
 
   return (
     <div className="relative min-h-screen max-w-7xl mx-auto">
       <Helmet>
-        <title>EstateEcho | Home</title>
+        <title>Bornali | Home</title>
       </Helmet>
       <Banner />
       <OfferBoard></OfferBoard>
-      <BestSellers></BestSellers>
-      <BestDeals></BestDeals>
-      <PopularOffer></PopularOffer>
+      <HomeCommonSection products={bestSellers} title={sectionTitle[0]}></HomeCommonSection>
+      <HomeCommonSection products={bestDeals} title={sectionTitle[1]}></HomeCommonSection>
+      <HomeCommonSection products={popularItems} title={sectionTitle[2]}></HomeCommonSection>
       <ShopByCategory></ShopByCategory>
       <AppSection></AppSection>
       <Testimonials></Testimonials>
-
-      <div className="relative">
-        {isButtonVisible && (
-          <button
-            onClick={handleButtonClick}
-            className="fixed bottom-8 ml-5  bg-[#FECD28] text-white text-xl p-2 rounded-full shadow-md cursor-pointer"
-          >
-            <IoMdArrowRoundUp />
-          </button>
-        )}
-      </div>
     </div>
   );
 };

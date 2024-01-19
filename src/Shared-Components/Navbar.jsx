@@ -30,10 +30,10 @@ const Navbar = () => {
     return (
         <div className="bg-[#25262B]">
             <div className='lg:w-10/12 mx-auto py-2 md:py-4 px-3 flex justify-between items-center'>
-                <div>
+                <Link to={'/'}>
                     {/* add logo or anything */}
                     <h2 className='text-2xl text-white font-bold'>Logo</h2>
-                </div>
+                </Link>
                 <div className='w-1/3 hidden md:block'>
                     <input
                         className='text-xl py-1 px-2 w-full rounded-md'

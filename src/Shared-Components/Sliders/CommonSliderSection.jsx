@@ -35,7 +35,7 @@ const OfferSliderSection = ({ products, sectionProperties, slideNumber }) => {
                     <Slider ref={sliderRef} {...settings}>
                         {products?.map((product, idx) => (
                             <div key={idx} className="md:p-5">
-                                <div className="bg-white rounded-lg shadow-lg">
+                                <div className="bg-white rounded-xl shadow-lg">
                                     <div className="flex justify-between pt-6 px-3 md:px-5 pb-2">
                                         <div className="w-1/2 space-y-3">
                                             <h3 className="md:text-3xl lg:text-xl font-semibold">
@@ -53,7 +53,7 @@ const OfferSliderSection = ({ products, sectionProperties, slideNumber }) => {
                                         />
                                     </div>
                                     <div className="flex space-x-2 md:space-x-8 items-center">
-                                        <button className="text-4xl md:text-6xl lg:text-4xl font-bold px-8 md:px-20 lg:px-10 py-2 bg-[#FECD28] hover:text-white rounded-tr-md rounded-bl-md">+</button>
+                                        <button className="text-4xl md:text-6xl lg:text-4xl font-bold px-8 md:px-20 lg:px-10 py-1 bg-[#FECD28] hover:text-white rounded-tr-xl rounded-bl-xl">+</button>
                                         <p className=" flex items-center py-0.5 px-5 bg-slate-100 rounded-lg font-bold md:text-2xl lg:text-base"><IoIosStar className="text-xl text-[#FECD28] mr-1"></IoIosStar>{product?.rating}</p>
 
                                     </div>

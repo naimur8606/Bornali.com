@@ -1,43 +1,43 @@
 [
     {
         "categoryName": "Fish",
-        "categoryLogo": "https://i.ibb.co/bsBnkds/fish-category.png",
+        "logo": "https://i.ibb.co/bsBnkds/fish-category.png",
         "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
 
     },
     {
         "categoryName": "Snacks",
-        "categoryLogo": "https://i.ibb.co/f15PBqq/snacks.png",
-        "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
+        "logo": "https://i.ibb.co/f15PBqq/snacks.png",
+        "categoryImage": "https://api.bengalmeat.com/images/b2c_cat_img/a364f9f4e109c228f244dbb5602472e710.jpg"
     },
     {
         "categoryName": "Beef",
-        "categoryLogo": "https://i.ibb.co/wKfyWKG/beef.png",
+        "logo": "https://i.ibb.co/wKfyWKG/beef.png",
         "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
     },
     {
         "categoryName": "Mutton",
-        "categoryLogo": "https://i.ibb.co/8cnZRhM/mutton.png",
+        "logo": "https://i.ibb.co/8cnZRhM/mutton.png",
         "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
     },
     {
         "categoryName": "Poultry",
-        "categoryLogo": "https://i.ibb.co/CnmM2vq/poultry.png",
+        "logo": "https://i.ibb.co/CnmM2vq/poultry.png",
         "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
     },
     {
         "categoryName": "Beef",
-        "categoryLogo": "https://i.ibb.co/wKfyWKG/beef.png",
+        "logo": "https://i.ibb.co/wKfyWKG/beef.png",
         "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
     },
     {
         "categoryName": "Snacks",
-        "categoryLogo": "https://i.ibb.co/f15PBqq/snacks.png",
+        "logo": "https://i.ibb.co/f15PBqq/snacks.png",
         "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
     },
     {
         "categoryName": "Mutton",
-        "categoryLogo": "https://i.ibb.co/8cnZRhM/mutton.png",
+        "logo": "https://i.ibb.co/8cnZRhM/mutton.png",
         "categoryImage": "https://i.ibb.co/rk2gtpc/pexels-photo-4828219.webp"
     }
 ]

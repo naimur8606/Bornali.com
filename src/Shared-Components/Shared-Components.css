@@ -1,14 +1,27 @@
-/* Shared-Components.css or your style file */
-.slick-container {
-  overflow: hidden;
-}
+
 
 .category-slider{
   overflow: hidden;
+  height: 240px;
+}
+
+.category-slider:hover{
+  border-radius: 6px;
 }
 
 .category-slider:hover img{
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.category-slider img {
+  height: 100%;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .category-slider{
+      height: 300px; 
+  }
 }
