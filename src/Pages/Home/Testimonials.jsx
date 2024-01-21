@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Testimonials = () => {
     const [testimonials, setTestimonials] = useState([]);
-
+    const axiosPublic = useAxiosPublic()
     useEffect(() => {
-        fetch("./Testimonial.json")
-            .then((res) => res.json())
-            .then((data) => {
-                setTestimonials(data)
-            });
-    }, []);
-    console.log(testimonials, "hello")
+        axiosPublic.get('/testimonials')
+        .then(data => setTestimonials(data?.data))
+      }, [axiosPublic])
 
     return (
         <div className="bg-[#F4F6F9] py-10">

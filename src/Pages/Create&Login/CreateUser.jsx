@@ -32,9 +32,15 @@ const CreateUser = () => {
             const password = data.password;
             console.log(name, email, photoUrl, password)
             if (!/^(?=.*[a-z])(?!.*[A-Z])(?=.*[0-9]).{6,}$/.test(password)) {
-                return console.log("error")
+                return (
+                    Swal.fire({
+                        title: 'Warning!',
+                        text: 'Please create password by small alphabet and must one number. length must be 6',
+                        icon: 'warning',
+                        confirmButtonText: ' Ok '
+                    })
+                )
             }
-            console.log(res.data)
             createUser(email, password)
                 .then(() => {
                     updateUser(name, photoUrl)
@@ -72,14 +78,16 @@ const CreateUser = () => {
     return (
         <div className="flex items-center min-h-screen w-[97%] lg:w-full mx-auto">
             <Helmet>
-                <title>EstateEcho | Create Account</title>
+                <title>Bornali | Create Account</title>
             </Helmet>
-            <div className="flex w-full flex-col justify-between lg:flex-row-reverse my-5">
-                <img className="md:w-2/3 lg:w-2/5 mx-auto" src='https://i.ibb.co/0jhnKK2/login.gif' alt="" />
-                <div className="shadow-2xl md:w-2/3 lg:w-1/3 mx-auto mt-10 lg:mt-0 p-5 rounded-lg">
-                    <h1 className="text-center text-5xl font-bold">Register now!</h1>
-                    <form onSubmit={handleSubmit(onSubmit)} className="mt-5">
-                        <div className="form-control">
+            <div className="flex w-full items-center justify-center my-5">
+                <div className="shadow-xl md:w-2/3 lg:w-1/3 mx-auto mt-10 lg:mt-0 px-5 py-10 rounded-lg border">
+                <div className="text-center space-y-2">
+                        <h1 className="text-center text-3xl font-semibold">Welcome to Bornali Bazar</h1>
+                        <p className="text-xl">Register Your Account</p>
+                    </div>
+                    <form onSubmit={handleSubmit(onSubmit)} className="mt-5 space-y-5">
+                        <div className="">
                             <label className="label">
                                 <span className="label-text">Name*</span>
                             </label>
@@ -88,9 +96,9 @@ const CreateUser = () => {
                                 placeholder="Your Name"
                                 {...register('name', { required: true })}
                                 required
-                                className="input input-bordered w-full" />
+                                className="border mt-0.5 p-2 rounded-lg w-full" />
                         </div>
-                        <div className="form-control">
+                        <div className="">
                             <label className="label">
                                 <span className="label-text">Email*</span>
                             </label>
@@ -99,15 +107,15 @@ const CreateUser = () => {
                                 placeholder="Your Email"
                                 {...register('email', { required: true })}
                                 required
-                                className="input input-bordered w-full" />
+                                className="border mt-0.5 p-2 rounded-lg w-full" />
                         </div>
-                        <div className="form-control">
+                        <div className="">
                             <label className="label">
-                                <span className="label-text">Image</span>
+                                <span className="mr-3">Image*</span>
                             </label>
                             <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
                         </div>
-                        <div className="form-control">
+                        <div className="">
                             <label className="label">
                                 <span className="label-text">Password*</span>
                             </label>
@@ -115,14 +123,16 @@ const CreateUser = () => {
                                 type="password"
                                 placeholder="Create Password"
                                 {...register('password', { required: true })}
-                                className="input input-bordered w-full" />
+                                className="border mt-0.5 p-2 rounded-lg w-full" />
                         </div>
-                        <div className="form-control mt-6">
-                            <button type="submit" className="btn btn-primary">Create Account</button>
+                        <div className="flex justify-between">
+                            <p className="text-sm">Have already account! <Link to={"/login"} className="text-blue-600">Login...</Link></p>
+                        </div>
+                        <div className="mt-6 flex justify-center">
+                            <button type="submit" className="w-8/12 mx-auto p-2 rounded-lg text-xl bg-[#fecd28]">Create Account</button>
                         </div>
                     </form>
-                    <div className="p-8">
-                        <p className="text-xl">Have already account <Link to={"/login"} className="text-blue-600 underline">Login</Link></p>
+                    <div className="mt-5 flex justify-center">
                         <SocialLogin></SocialLogin>
                     </div>
                 </div>

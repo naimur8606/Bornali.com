@@ -1,10 +1,11 @@
 import { useLocation } from "react-router-dom";
 import CategorySlider from "../../Shared-Components/Sliders/CategorySlider";
 import useCategories from "../../Hooks/useCategories";
-import Product from "../../Shared-Components/Product";
+import Product from "../../Shared-Components/ProductStyle/Product";
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { Helmet } from "react-helmet-async";
+import UpperArrow from "../../Shared-Components/Sliders/UpperArrow";
 const DisplayByCategory = () => {
     const axiosPublic = useAxiosPublic()
     const [products, setProducts] = useState([])
@@ -38,7 +39,7 @@ const DisplayByCategory = () => {
                     <CategorySlider slideNumber={2}></CategorySlider>
                 </div>
             </div>
-            <div className="bg-slate-50 py-5 px-3 lg:px-0">
+            <div className="bg-slate-50 py-5 px-3 lg:px-0 min-h-screen">
                 <div className="flex items-center lg:w-10/12 mx-auto p-3 rounded-lg bg-gradient-to-r from-[#fecd28] to-[#fff]">
                     <img className="h-12" src={category?.logo} alt="" />
                     <h4 className="text-2xl ml-2 font-semibold">{category?.categoryName}</h4>
@@ -49,7 +50,7 @@ const DisplayByCategory = () => {
                     }
                 </div>
             </div>
-
+                    <UpperArrow></UpperArrow>
         </div>
     );
 };

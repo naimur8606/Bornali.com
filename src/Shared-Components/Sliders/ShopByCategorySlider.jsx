@@ -2,17 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { IoIosArrowDropleft, IoIosArrowDropright, IoIosStar } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import useCategories from "../../Hooks/useCategories";
 
 const ShopByCategorySlider = ({ slideNumber }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const sliderRef = useRef(null);
-    const [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        fetch("./Category.json")
-            .then((res) => res.json())
-            .then((data) => setCategories(data));
-    }, []);
+    const [categories] = useCategories();
 
     const settings = {
         dots: true,

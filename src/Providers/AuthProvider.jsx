@@ -1,4 +1,4 @@
-import { signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GithubAuthProvider, updateProfile } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GithubAuthProvider, updateProfile, sendPasswordResetEmail } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import auth from "./Firebase/FirebaseConfig";
@@ -27,9 +27,9 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
-    const githubLogin = () => {
+    const forgotPassword = (email) => {
         setLoading(true);
-        return signInWithPopup(auth, githubProvider);
+        return sendPasswordResetEmail(auth, email);
     }
     const logOut = () => {
         setLoading(true);
@@ -79,7 +79,7 @@ const AuthProvider = ({ children }) => {
         loading,
         userCurrentPath,
         setUserLocation,
-        githubLogin,
+        forgotPassword,
         userData,
         setUserData,
         updateUser

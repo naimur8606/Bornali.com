@@ -3,16 +3,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import CategorySlider from '../../Shared-Components/Sliders/CategorySlider';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
 const Banner = () => {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    fetch("./Category.json")
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
-  }, []);
 
   return (
     <div className="">
@@ -31,7 +23,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      <div className='lg:w-10/12 mx-auto'>
+      <div className='lg:w-10/12 mx-auto pb-10'>
         <div className='-mt-24 lg:-mt-28 hidden lg:block'>
           <CategorySlider slideNumber={5}></CategorySlider>
         </div>

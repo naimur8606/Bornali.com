@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Banner from "./Banner";
-import { IoMdArrowRoundUp } from "react-icons/io";
 import OfferBoard from "./OfferBoard";
 import ShopByCategory from "./ShopByCategory";
 import AppSection from "./AppSection";
 import Testimonials from "./Testimonials";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import HomeCommonSection from "./HomeCommonSection";
+import UpperArrow from "../../Shared-Components/Sliders/UpperArrow";
 
 const Home = () => {
   const axiosPublic = useAxiosPublic()
@@ -35,7 +35,6 @@ const Home = () => {
       link: "popular-items"
     }
   ]
-  console.log(products)
 
   return (
     <div className="relative min-h-screen max-w-7xl mx-auto">
@@ -50,6 +49,7 @@ const Home = () => {
       <ShopByCategory></ShopByCategory>
       <AppSection></AppSection>
       <Testimonials></Testimonials>
+      <UpperArrow></UpperArrow>
     </div>
   );
 };

@@ -3,13 +3,12 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useAuth from "../../Hooks/useAuth";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { AiFillGithub, AiFillGoogleCircle } from "react-icons/ai";
 
 
 const SocialLogin = () => {
     const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
-    const { googleLogin, githubLogin } = useAuth();
+    const { googleLogin } = useAuth();
     const [useAlert, setUseAlert] = useState(true)
     const location = useLocation()?.state?.location
     
@@ -47,14 +46,12 @@ const SocialLogin = () => {
 
     return (
         <>
-            <div className="divider">continue with</div>
-            <div className="flex justify-around">
+            <div className="w-8/12">
                 <button
                     onClick={() => handleSocialLogin(googleLogin)}
-                    className="flex border border-[#fd4520] text-[#f66f54] py-1 px-2 rounded"><AiFillGoogleCircle className="text-2xl"></AiFillGoogleCircle> Google</button>
-                <button
-                    onClick={() => handleSocialLogin(githubLogin)}
-                    className="flex border border-[#251655] text-[#3a2c8c] py-1 px-2 rounded"><AiFillGithub className="text-2xl"></AiFillGithub> Github</button>
+                    className="w-full border flex justify-center p-1.5 rounded-lg text-xl">
+                       By Google <img className="h-8 ml-3" src="https://i.ibb.co/JQHCybC/google.png" alt="" />
+                    </button>
             </div>
         </>
     );

@@ -1,16 +1,16 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import "../Shared-Components.css";
 import { Link, useLocation } from "react-router-dom";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import useCategories from "../../Hooks/useCategories";
 
-const CategorySlider = ({slideNumber}) => {
+const CategorySlider = ({ slideNumber }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
   const [categories] = useCategories();
   const location = useLocation().pathname;
-console.log(location)
+  const [presentCategory, setPresentCategory] = useState('')
   const settings = {
     slidesToShow: slideNumber,
     autoplay: true,
@@ -19,12 +19,19 @@ console.log(location)
       setCurrentSlide(index);
     },
   };
-
   const handleSetPathClick = (x) => {
     const newSlideIndex = (currentSlide + x + categories.length) % categories.length;
     setCurrentSlide(newSlideIndex);
     sliderRef.current.slickGoTo(newSlideIndex);
   };
+  useEffect(() => {
+    function separateCategories(path) {
+      var regex = /^\/categories\//;
+      var result = path.replace(regex, '');
+      return result;
+    }
+    setPresentCategory(separateCategories(location))
+  }, [location])
 
   return (
     <div className="flex w-full">
@@ -40,13 +47,7 @@ console.log(location)
             <div key={idx} className="">
               <Link
                 to={`/categories/${category?.categoryName.toLowerCase()}`}
-                className={`m-3 py-4 md:py-8 px-2 bg-slate-50 ${
-                  location === `/categories/${category?.categoryName.toLowerCase()}` 
-                    ? 'bg-[#fecd28]' 
-                    : ''
-                } hover:bg-[#fecd28] flex flex-col items-center shadow-md rounded-md`}
-                
-              >
+                className={`m-3 py-4 md:py-8 px-2 bg-slate-50 ${'beef' == category?.categoryName && 'bg-[#fecd28]'} hover:bg-[#fecd28] flex flex-col items-center shadow-md rounded-md`}>
                 <img
                   className="h-14 md:h-24 w-10 md:w-20"
                   src={category?.logo}

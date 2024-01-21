@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useCategories from "../../Hooks/useCategories";
 import { useLocation } from "react-router-dom";
-import Product from "../../Shared-Components/Product";
+import Product from "../../Shared-Components/ProductStyle/Product";
+import UpperArrow from "../../Shared-Components/Sliders/UpperArrow";
 
 const DisplayByOffer = () => {
     const axiosPublic = useAxiosPublic()
@@ -35,7 +36,7 @@ const DisplayByOffer = () => {
     ]
     const category = sectionTitle?.find(item => item?.link === separateCategories(location).toLowerCase())
     return (
-        <div>
+        <div className="min-h-screen pt-5">
             <div className="bg-slate-50 py-5 px-3 lg:px-0">
                 <div className="flex items-center lg:w-10/12 mx-auto p-3 rounded-lg bg-gradient-to-r from-[#fecd28] to-[#fff]">
                     <h4 className="text-4xl ml-2 font-semibold">{category?.name}</h4>
@@ -46,6 +47,7 @@ const DisplayByOffer = () => {
                     }
                 </div>
             </div>
+            <UpperArrow></UpperArrow>
         </div>
     );
 };

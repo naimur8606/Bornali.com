@@ -61,14 +61,16 @@ const Login = () => {
     return (
         <div className="flex items-center min-h-screen w-[97%] lg:w-full mx-auto">
             <Helmet>
-                <title>EstateEcho | Login</title>
+                <title>Bornali | Login</title>
             </Helmet>
-            <div className="flex w-full flex-col justify-between lg:flex-row-reverse my-5">
-                <img className="md:w-2/3 lg:w-2/5 mx-auto" src='https://i.ibb.co/0jhnKK2/login.gif' alt="" />
-                <div className="shadow-2xl md:w-2/3 lg:w-1/3 mx-auto mt-10 lg:mt-0 p-5 rounded-lg">
-                    <h1 className="text-center text-5xl font-bold">Login now!</h1>
-                    <form onSubmit={handleSubmit(onSubmit)} className="mt-5">
-                        <div className="form-control">
+            <div className="flex w-full items-center justify-center my-5">
+                <div className="shadow-xl md:w-2/3 lg:w-1/3 mx-auto mt-10 lg:mt-0 px-5 py-10 rounded-lg border">
+                    <div className="text-center space-y-2">
+                        <h1 className="text-center text-3xl font-semibold">Welcome to Bornali Bazar</h1>
+                        <p className="text-xl">Login with your credentials</p>
+                    </div>
+                    <form onSubmit={handleSubmit(onSubmit)} className="mt-5 space-y-5">
+                        <div className="">
                             <label className="label">
                                 <span className="label-text">Email*</span>
                             </label>
@@ -77,7 +79,7 @@ const Login = () => {
                                 placeholder="Your Email"
                                 {...register('email', { required: true })}
                                 required
-                                className="input input-bordered w-full" />
+                                className="border mt-0.5 p-2 rounded-lg w-full" />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -87,14 +89,17 @@ const Login = () => {
                                 type="password"
                                 placeholder="Enter Password"
                                 {...register('password', { required: true })}
-                                className="input input-bordered w-full" />
+                                className="border mt-0.5 p-2 rounded-lg w-full" />
                         </div>
-                        <div className="form-control mt-6">
-                            <button type="submit" className="btn btn-primary">Login</button>
+                        <div className="flex justify-between">
+                            <p className="text-sm">New User? <Link to={"/registration"} className="text-blue-600">Register Here...</Link></p>
+                            <Link to={"/forgetPassword"} className="text-sm">Forget Password</Link>
+                        </div>
+                        <div className="mt-6 flex justify-center">
+                            <button type="submit" className="w-8/12 mx-auto p-2 rounded-lg text-xl bg-[#fecd28]">Login</button>
                         </div>
                     </form>
-                    <div className="p-8">
-                        <p className="text-xl">Are you new here <Link to={"/registration"} className="text-blue-600 underline">Registration</Link> account</p>
+                    <div className="mt-5 flex justify-center">
                         <SocialLogin></SocialLogin>
                     </div>
                 </div>
