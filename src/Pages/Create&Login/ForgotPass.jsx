@@ -7,13 +7,23 @@ const ForgotPass = () => {
     const { forgotPassword } = useAuth();
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [loader, setLoader] = useState(false)
 
     const handleForgotPassword = async () => {
+        setLoader(true)
         try {
             await forgotPassword(email);
+            // Display a custom success message when the email is found
             setMessage('Password reset email sent. Check your inbox.');
         } catch (error) {
-            setMessage(`Error: ${error.message}`);
+            // Check if the error is related to the email not being found
+            if (error.code === 'auth/user-not-found') {
+                setMessage('No account found with this email.');
+            } else {
+                setMessage(`Error: ${error.message}`);
+            }
+        } finally {
+            setLoader(false);
         }
     };
 
@@ -39,8 +49,13 @@ const ForgotPass = () => {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
-                <button onClick={handleForgotPassword} className='w-8/12 mx-auto p-2 rounded-lg text-xl bg-[#fecd28]'>Reset Password</button>
-                <p>{message}</p>
+                <button onClick={handleForgotPassword} className="w-8/12 mx-auto p-2 rounded-lg text-xl bg-[#fecd28] flex justify-center items-center">
+                    <span>Reset Password</span>
+                    {
+                        loader && <p className="ml-3 border-t rounded-xl border-black border-solid w-4 h-4 animate-spin"></p>
+                    }
+                </button>
+                <p className={`text-center mt-3 ${message.includes('Error') ? 'text-red-500' : 'text-green-500'}`}>{message}</p>
                 <hr />
                 <div className="mt-10">
                     <p className="">Back to Login page! <Link to={"/login"} className="text-blue-600">Login...</Link></p>

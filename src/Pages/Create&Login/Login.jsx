@@ -13,15 +13,15 @@ const Login = () => {
     const { user, userLogin, setUserLocation } = useAuth()
     const axiosPublic = useAxiosPublic()
     const [useAlert, setUseAlert] = useState(true)
+    const [loader, setLoader] = useState(false)
     const location = useLocation()
     const State = location?.state
     setUserLocation(State)
     const navigate = useNavigate()
     const onSubmit = async (data) => {
-        console.log(data)
+        setLoader(true)
         const email = data.email;
         const password = data.password;
-        console.log(email, password)
         userLogin(email, password)
             .then(() => {
                 const status = "User";
@@ -55,6 +55,7 @@ const Login = () => {
                     icon: 'warning',
                     confirmButtonText: 'Ok'
                 })
+                setLoader(false)
             });
 
     };
@@ -96,7 +97,12 @@ const Login = () => {
                             <Link to={"/forgetPassword"} className="text-sm">Forget Password</Link>
                         </div>
                         <div className="mt-6 flex justify-center">
-                            <button type="submit" className="w-8/12 mx-auto p-2 rounded-lg text-xl bg-[#fecd28]">Login</button>
+                            <button type="submit" className="w-8/12 mx-auto p-2 rounded-lg text-xl bg-[#fecd28] flex justify-center items-center">
+                                <span>Login</span> 
+                                {
+                                    loader && <p className="ml-3 border-t rounded-xl border-black border-solid w-4 h-4 animate-spin"></p>
+                                }
+                                </button>
                         </div>
                     </form>
                     <div className="mt-5 flex justify-center">
