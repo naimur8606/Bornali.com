@@ -98,9 +98,9 @@ const Login = () => {
                         </div>
                         <div className="mt-6 flex justify-center">
                             <button type="submit" className="w-8/12 mx-auto p-2 rounded-lg text-xl bg-[#fecd28] flex justify-center items-center">
-                                <span>Login</span> 
+                                <span>{loader || "Login"}</span> 
                                 {
-                                    loader && <p className="ml-3 border-t rounded-xl border-black border-solid w-4 h-4 animate-spin"></p>
+                                    loader && <p className="border-t rounded-xl border-black border-solid w-4 h-4 animate-spin"></p>
                                 }
                                 </button>
                         </div>

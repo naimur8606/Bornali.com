@@ -32,6 +32,7 @@ const CategorySlider = ({ slideNumber }) => {
     }
     setPresentCategory(separateCategories(location))
   }, [location])
+  
 
   return (
     <div className="flex w-full">

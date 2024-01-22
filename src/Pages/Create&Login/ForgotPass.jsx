@@ -50,9 +50,9 @@ const ForgotPass = () => {
                     />
                 </div>
                 <button onClick={handleForgotPassword} className="w-8/12 mx-auto p-2 rounded-lg text-xl bg-[#fecd28] flex justify-center items-center">
-                    <span>Reset Password</span>
+                    <span>{loader || "Reset Password"}</span>
                     {
-                        loader && <p className="ml-3 border-t rounded-xl border-black border-solid w-4 h-4 animate-spin"></p>
+                        loader && <p className="border-t rounded-xl border-black border-solid w-4 h-4 animate-spin"></p>
                     }
                 </button>
                 <p className={`text-center mt-3 ${message.includes('Error') ? 'text-red-500' : 'text-green-500'}`}>{message}</p>

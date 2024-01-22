@@ -21,7 +21,7 @@ const CreateUser = () => {
         const name = data?.name;
         const email = data?.email;
         const password = data?.password;
-        console.log(name, email, password)
+        // console.log(name, email, password)
         if (!/^(?=.*[a-z])(?!.*[A-Z])(?=.*[0-9]).{6,}$/.test(password)) {
             return (
                 Swal.fire({
@@ -79,9 +79,7 @@ const CreateUser = () => {
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)} className="mt-5 space-y-5">
                         <div className="">
-                            <label className="label">
-                                <span className="label-text">Name*</span>
-                            </label>
+                            <label>Name*</label>
                             <input
                                 type="text"
                                 placeholder="Your Name"
@@ -115,9 +113,9 @@ const CreateUser = () => {
                         </div>
                         <div className="mt-6 flex justify-center">
                             <button type="submit" className="w-8/12 mx-auto p-2 rounded-lg text-xl bg-[#fecd28] flex justify-center items-center">
-                                <span>Create Account</span>
+                                <span>{loader || "Create Account"}</span>
                                 {
-                                    loader && <p className="ml-3 border-t rounded-xl border-black border-solid w-4 h-4 animate-spin"></p>
+                                    loader && <p className="border-t rounded-xl border-black border-solid w-4 h-4 animate-spin"></p>
                                 }
                             </button>
                         </div>

@@ -4,15 +4,110 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { FaCartArrowDown } from "react-icons/fa";
+import Swal from "sweetalert2";
+import { MdFavoriteBorder } from "react-icons/md";
+import useDatabaseUser from "../../Hooks/useDatabaseUser";
+import useCart from "../../Hooks/useCart";
 
 const DisplayProduct = () => {
+    const [databaseUser] = useDatabaseUser()
+    const [, refetch] = useCart()
     const axiosPublic = useAxiosPublic()
     const [product, setProduct] = useState({})
-    const [addQuantity, setAddQuantity] = useState(0)
+    const [loader, setLoader] = useState(false)
+    const [addQuantity, setAddQuantity] = useState(1)
     const productId = useParams()?.id;
+    
     useEffect(() => {
         axiosPublic.get(`/singleProduct/${productId}`).then(data => setProduct(data?.data))
     }, [axiosPublic, productId])
+
+    const handleCart = () => {
+        setLoader(true)
+        const item = {
+            productId: product?._id,
+            email: databaseUser?.email,
+            productImage: product?.image,
+            productName: product?.name,
+            weight: product?.weight,
+            numberOfProducts: addQuantity,
+            status: "pending",
+            price: Math.round(product?.price * addQuantity)
+        }
+        axiosPublic.post('/CartProducts', item)
+            .then(data => {
+                if (data.data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: `${product?.name} add on Your cart`,
+                        icon: 'success',
+                        confirmButtonText: 'Yaaah'
+                    })
+                    refetch()
+                    setLoader(false)
+                } else {
+                    Swal.fire({
+                        title: 'Warning!',
+                        text: 'You are already select it..!',
+                        icon: 'warning',
+                        confirmButtonText: 'Ok'
+                    })
+                    setLoader(false)
+
+                }
+            })
+            .catch(err => {
+                Swal.fire({
+                    title: 'Warning!',
+                    text: `${err.message}`,
+                    icon: 'warning',
+                    confirmButtonText: 'Ok'
+                })
+                setLoader(false)
+            })
+    }
+    const handleFavoriteProducts = () => {
+        setLoader(true)
+        const item = {
+            productId: product?._id,
+            email: databaseUser?.email,
+            productImage: product?.image,
+            productName: product?.name,
+            weight: product?.weight,
+            price: product?.price
+        }
+        axiosPublic.post('/favoriteProducts', item)
+            .then(data => {
+                if (data.data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: `${product?.name} add on Your Favorite Products list`,
+                        icon: 'success',
+                        confirmButtonText: 'Yaaah'
+                    })
+                    refetch()
+                    setLoader(false)
+                } else {
+                    Swal.fire({
+                        title: 'Warning!',
+                        text: `You are already added ${product?.name} on Your Favorite Products list !`,
+                        icon: 'warning',
+                        confirmButtonText: 'Ok'
+                    })
+                    setLoader(false)
+
+                }
+            })
+            .catch(err => {
+                Swal.fire({
+                    title: 'Warning!',
+                    text: `${err.message}`,
+                    icon: 'warning',
+                    confirmButtonText: 'Ok'
+                })
+                setLoader(false)
+            })
+    }
 
     return (
         <div className="">
@@ -39,7 +134,7 @@ const DisplayProduct = () => {
                         <h3 className="text-2xl hover:text-[#fecd28] font-medium">{product?.name}</h3>
                         <div className="flex justify-between space-x-2 md:text-lg">
                             <p className="py-0.5 px-3 md:px-5 bg-slate-100 rounded-lg">Quantity: {product?.weight}</p>
-                            <p className="py-0.5 px-3 md:px-5 bg-slate-100 rounded-lg">Price: <span className="text-2xl font-medium">{product?.price}</span> ৳</p>
+                            <p className="py-0.5 px-3 md:px-5 bg-slate-100 rounded-lg">Price: <span className="text-2xl font-medium">{Math.round(product?.price * addQuantity)}</span> ৳</p>
                         </div>
                         <div className="flex">
                             <p className=" text-xl font-semibold">Stock: {product?.stock}</p>
@@ -57,9 +152,23 @@ const DisplayProduct = () => {
                                     }> + </button>
                             </div>
                         </div>
-                        <div className="flex flex-col lg:flex-row justify-between space-y-3 lg:space-x-2">
-                            <button className="flex items-center hover:bg-[#fecd28] border-2 py-1 justify-center px-3 rounded-lg text-xl"><FaCartArrowDown className="mr-1"></FaCartArrowDown> Add to Cart </button>
-                            <button className="flex items-center hover:bg-[#fecd28] border-2 py-1 justify-center px-3 rounded-lg text-xl"><FaCartArrowDown className="mr-1"></FaCartArrowDown> Add to Favorite </button>
+                        <div className="flex flex-col lg:flex-row justify-between space-y-3 lg:space-y-0 lg:space-x-2">
+                            <button onClick={handleCart} className="flex items-center hover:bg-[#fecd28] border-2 py-1 justify-center px-3 rounded-lg text-xl">
+                                {
+                                    loader || <><FaCartArrowDown className="mr-1"></FaCartArrowDown> Add to Cart</>
+                                }
+                                {
+                                    loader && <p className="border-t rounded-xl border-black border-solid w-4 h-4 animate-spin"></p>
+                                }
+                            </button>
+                            <button onClick={handleFavoriteProducts} className="flex items-center hover:bg-[#fecd28] border-2 py-1 justify-center px-3 rounded-lg text-xl">
+                                {
+                                    loader || <><MdFavoriteBorder className="mr-1"></MdFavoriteBorder> Add to Favorite</>
+                                }
+                                {
+                                    loader && <p className="border-t rounded-xl border-black border-solid w-4 h-4 animate-spin"></p>
+                                }
+                                </button>
                         </div>
                     </div>
                 </div>

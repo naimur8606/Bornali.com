@@ -7,7 +7,7 @@ const Footer = () => {
                 <aside className="w-full flex md:justify-end md:pr-20">
                     <div>
                         {/* add logo or anything */}
-                        <h2 className='text-4xl text-white font-bold'>Logo</h2>
+                        <img className='h-16' src="https://i.ibb.co/Pw6K25C/bornali-dflt-logo-removebg-preview.png" alt="" />
                         <div>
                             <h5 className='text-2xl'>Contact Us</h5>
                             <p>Ibrahimpur, Dhaka-1216, Bangladesh</p>
